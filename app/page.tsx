@@ -186,7 +186,7 @@ export default function Home() {
         </div>
 
         <div className="hero-mark" aria-hidden="true">
-          <Mark className="embossed-mark" />
+          <Mark inverse className="embossed-mark" />
           <span className="orbit orbit-one" />
           <span className="orbit orbit-two" />
         </div>
