@@ -1,4 +1,4 @@
-import Image from "next/image";
+/* eslint-disable @next/next/no-img-element */
 
 const questions = [
   {
@@ -59,7 +59,7 @@ type MarkProps = {
 
 function Mark({ inverse = false, className = "" }: MarkProps) {
   return (
-    <Image
+    <img
       className={`mark ${className}`}
       src={inverse ? "/assets/alter-mark-white.png" : "/assets/alter-mark-dark.png"}
       alt="ALTER Laboratory"
@@ -165,7 +165,7 @@ export default function Home() {
             <br /> Nós o prototipamos.
           </p>
           <div className="founder-mini">
-            <Image
+            <img
               src="/assets/carlos-editorial.webp"
               alt="Carlos R. Filho"
               width="1003"
@@ -227,7 +227,7 @@ export default function Home() {
               rel="noreferrer"
               aria-label="Abrir a demonstração do SkinOS"
             >
-              <Image
+              <img
                 src="/assets/skinos-dashboard.webp"
                 alt="Interface do SkinOS mostrando o assistente clínico SkinAI"
                 width="1280"
@@ -329,7 +329,7 @@ export default function Home() {
 
       <section className="section about shell" id="sobre">
         <div className="about-photo">
-          <Image
+          <img
             src="/assets/carlos-editorial.webp"
             alt="Retrato de Carlos R. Filho"
             width="1003"
