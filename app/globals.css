@@ -330,14 +330,20 @@ summary {
   place-items: center;
 }
 
-.embossed-mark {
+.recessed-hero-art {
   position: relative;
   z-index: 1;
-  width: min(92%, 650px);
+  width: min(100%, 720px);
   height: auto;
-  opacity: 0.78;
-  filter: drop-shadow(-7px -7px 7px rgba(102, 95, 85, 0.3))
-    drop-shadow(8px 8px 8px rgba(255, 255, 255, 0.98));
+  opacity: 0.98;
+  mix-blend-mode: multiply;
+  mask-image: radial-gradient(ellipse at center, #000 48%, rgba(0, 0, 0, 0.96) 64%, transparent 98%);
+  -webkit-mask-image: radial-gradient(
+    ellipse at center,
+    #000 48%,
+    rgba(0, 0, 0, 0.96) 64%,
+    transparent 98%
+  );
 }
 
 .orbit {

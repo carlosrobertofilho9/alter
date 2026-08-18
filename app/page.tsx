@@ -186,7 +186,13 @@ export default function Home() {
         </div>
 
         <div className="hero-mark" aria-hidden="true">
-          <Mark inverse className="embossed-mark" />
+          <img
+            className="recessed-hero-art"
+            src="/assets/alter-recessed-hero.webp"
+            alt=""
+            width="1254"
+            height="1254"
+          />
           <span className="orbit orbit-one" />
           <span className="orbit orbit-two" />
         </div>
