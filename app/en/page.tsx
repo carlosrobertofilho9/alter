@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 
 import type { Metadata } from "next";
+import { AlterPortal, LanguageTransitionLink } from "../components/AlterExperience";
 
 export const metadata: Metadata = {
   title: "Health is not finished",
@@ -94,6 +95,27 @@ const capabilities = [
   "Prototyping",
 ];
 
+const editorialNotes = [
+  {
+    meta: "NOTE 01 · CONTINUITY",
+    title: "Medicine records events. The body lives through intervals.",
+    text: "Appointments are points in time. Real care happens between them — precisely where current systems are least able to see.",
+    alteration: "Hypothesis: time should be a clinical entity, not merely a filter.",
+  },
+  {
+    meta: "NOTE 02 · UNCERTAINTY",
+    title: "Every clinical AI should know how to say: I don’t know.",
+    text: "Confidence without context looks like precision. A responsible interface should make limits, inference and human judgment visible.",
+    alteration: "Premise: revealing uncertainty is also a form of safety.",
+  },
+  {
+    meta: "NOTE 03 · ENVIRONMENT",
+    title: "Prevention should not demand attention all the time.",
+    text: "Perhaps the most effective preventive care is not another alert, but an environment that reduces friction without constantly competing for attention.",
+    alteration: "Question: what if care could happen quietly?",
+  },
+];
+
 type MarkProps = {
   inverse?: boolean;
 };
@@ -152,13 +174,13 @@ export default function EnglishHome() {
         </a>
         <nav className="desktop-nav" aria-label="Primary navigation">
           <a href="#experiments">Experiments</a>
-          <a href="#questions">Ideas</a>
+          <a href="#notes">Ideas</a>
           <a href="#laboratory">Laboratory</a>
           <a href="#about">About</a>
         </nav>
         <div className="header-actions">
           <div className="language-switch" aria-label="Select language">
-            <a href="/" hrefLang="pt-BR" lang="pt-BR">PT</a>
+            <LanguageTransitionLink currentLocale="en">PT</LanguageTransitionLink>
             <span aria-current="page">EN</span>
           </div>
           <a
@@ -177,18 +199,18 @@ export default function EnglishHome() {
             </summary>
             <nav aria-label="Mobile menu">
               <a href="#experiments">Experiments</a>
-              <a href="#questions">Ideas</a>
+              <a href="#notes">Ideas</a>
               <a href="#laboratory">Laboratory</a>
               <a href="#about">About</a>
-              <a href="/" hrefLang="pt-BR" lang="pt-BR">Português</a>
+              <LanguageTransitionLink currentLocale="en">Português</LanguageTransitionLink>
               <a href="https://www.linkedin.com/in/carlos-filho-84b341206/">LinkedIn ↗</a>
             </nav>
           </details>
         </div>
       </header>
 
-      <section className="hero shell" id="top">
-        <div className="hero-title-block">
+      <section className="hero shell" id="top" data-alter-label="FIELD 00 · HYPOTHESIS">
+        <div className="hero-title-block" data-reveal>
           <p className="eyebrow">ALTER Laboratory</p>
           <h1>
             Health
@@ -200,7 +222,7 @@ export default function EnglishHome() {
           </a>
         </div>
 
-        <div className="hero-copy">
+        <div className="hero-copy" data-reveal>
           <p>
             ALTER Laboratory is an independent experimental lab exploring what health
             can become through design, technology and emerging tools.
@@ -230,26 +252,16 @@ export default function EnglishHome() {
           </div>
         </div>
 
-        <div className="hero-mark" aria-hidden="true">
-          <img
-            className="recessed-hero-art"
-            src="/assets/alter-recessed-hero-v3.webp"
-            alt=""
-            width="1254"
-            height="1254"
-          />
-          <span className="orbit orbit-one" />
-          <span className="orbit orbit-two" />
-        </div>
+        <AlterPortal locale="en" />
       </section>
 
-      <section className="section experiments shell" id="experiments">
-        <div className="section-heading">
+      <section className="section experiments shell" id="experiments" data-alter-label="FIELD 01 · EXPERIMENTS">
+        <div className="section-heading" data-reveal>
           <p className="eyebrow">Featured experiments</p>
           <span>01 — 03</span>
         </div>
 
-        <div className="experiment-grid">
+        <div className="experiment-grid" data-reveal>
           <article className="experiment skinos-card">
             <div className="card-copy">
               <p className="experiment-number">EXP.001 · DEMO</p>
@@ -325,8 +337,33 @@ export default function EnglishHome() {
         </div>
       </section>
 
-      <section className="section questions shell" id="questions">
-        <div className="questions-intro">
+      <section className="section editorial shell" id="notes" data-alter-label="FIELD 02 · FIELD NOTES">
+        <div className="editorial-intro" data-reveal>
+          <p className="eyebrow">Laboratory notes</p>
+          <h2>Ideas before they become products.</h2>
+          <p>
+            Observations about what medicine, technology and design have learned to
+            treat as inevitable.
+          </p>
+        </div>
+        <div className="editorial-notes">
+          {editorialNotes.map((note, index) => (
+            <article className="editorial-note" key={note.meta} data-reveal>
+              <div className="note-signal" aria-hidden="true">
+                <i />
+                <span>0{index + 1}</span>
+              </div>
+              <p className="note-meta">{note.meta}</p>
+              <h3>{note.title}</h3>
+              <p>{note.text}</p>
+              <p className="alter-note">{note.alteration}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="section questions shell" id="questions" data-alter-label="FIELD 03 · QUESTIONS">
+        <div className="questions-intro" data-reveal>
           <p className="eyebrow">Questions we explore</p>
           <h2>Care changes when the question changes.</h2>
           <p>
@@ -334,7 +371,7 @@ export default function EnglishHome() {
             invisible.
           </p>
         </div>
-        <div className="question-list">
+        <div className="question-list" data-reveal>
           {questions.map((item, index) => (
             <details key={item.question} name="alter-questions-en">
               <summary>
@@ -355,12 +392,12 @@ export default function EnglishHome() {
         </div>
       </section>
 
-      <section className="section process-section shell" id="laboratory">
-        <div className="section-heading">
+      <section className="section process-section shell" id="laboratory" data-alter-label="FIELD 04 · METHOD">
+        <div className="section-heading" data-reveal>
           <p className="eyebrow">Our laboratory process</p>
           <span>An idea needs form before it can be discussed.</span>
         </div>
-        <ol className="process-list">
+        <ol className="process-list" data-reveal>
           {process.map(([number, title, description], index) => (
             <li key={number}>
               <span className="process-number">{number}</span>
@@ -372,8 +409,8 @@ export default function EnglishHome() {
         </ol>
       </section>
 
-      <section className="section about shell" id="about">
-        <div className="about-photo">
+      <section className="section about shell" id="about" data-alter-label="FIELD 05 · AUTHORSHIP">
+        <div className="about-photo" data-reveal>
           <img
             src="/assets/carlos-editorial.webp"
             alt="Portrait of Carlos R. Filho"
@@ -382,7 +419,7 @@ export default function EnglishHome() {
           />
           <span>Founder · ALTER Laboratory</span>
         </div>
-        <div className="about-copy">
+        <div className="about-copy" data-reveal>
           <p className="eyebrow">Behind ALTER</p>
           <h2>Carlos R. Filho</h2>
           <p className="about-role">Physician · HealthTech Builder</p>
@@ -400,7 +437,7 @@ export default function EnglishHome() {
             Connect on LinkedIn <Arrow />
           </a>
         </div>
-        <div className="capabilities">
+        <div className="capabilities" data-reveal>
           <p className="eyebrow">Capabilities</p>
           <ul>
             {capabilities.map((capability, index) => (

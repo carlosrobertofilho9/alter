@@ -32,6 +32,8 @@ test("server-renders the ALTER Laboratory homepage", async () => {
   assert.match(html, /ALTER Laboratory/);
   assert.match(html, /Saúde/);
   assert.match(html, /SkinOS/);
+  assert.match(html, /Notas do laboratório/);
+  assert.match(html, /Entrar no ALTER Mode/);
   assert.match(html, /application\/ld\+json/);
   assert.match(html, /og\.png/);
   assert.doesNotMatch(html, /codex-preview|Your site is taking shape/);
@@ -47,6 +49,8 @@ test("server-renders the complete English version", async () => {
   assert.match(html, /finished/);
   assert.match(html, /Questions we explore/);
   assert.match(html, /Behind ALTER/);
+  assert.match(html, /Laboratory notes/);
+  assert.match(html, /Enter ALTER Mode/);
   assert.match(html, /hreflang="pt-BR"/i);
   assert.doesNotMatch(html, /Saúde não está pronta/);
 });
