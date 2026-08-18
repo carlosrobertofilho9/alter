@@ -188,7 +188,7 @@ export default function Home() {
         <div className="hero-mark" aria-hidden="true">
           <img
             className="recessed-hero-art"
-            src="/assets/alter-recessed-hero.webp"
+            src="/assets/alter-recessed-hero-v3.webp"
             alt=""
             width="1254"
             height="1254"

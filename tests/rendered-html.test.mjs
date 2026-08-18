@@ -41,7 +41,7 @@ test("ships the required brand and product assets", async () => {
   const requiredAssets = [
     "../public/assets/alter-mark-dark.png",
     "../public/assets/alter-mark-white.png",
-    "../public/assets/alter-recessed-hero.webp",
+    "../public/assets/alter-recessed-hero-v3.webp",
     "../public/assets/carlos-editorial.webp",
     "../public/assets/skinos-dashboard.webp",
     "../public/og.png",

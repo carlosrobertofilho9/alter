@@ -335,15 +335,7 @@ summary {
   z-index: 1;
   width: min(100%, 720px);
   height: auto;
-  opacity: 0.98;
-  mix-blend-mode: multiply;
-  mask-image: radial-gradient(ellipse at center, #000 48%, rgba(0, 0, 0, 0.96) 64%, transparent 98%);
-  -webkit-mask-image: radial-gradient(
-    ellipse at center,
-    #000 48%,
-    rgba(0, 0, 0, 0.96) 64%,
-    transparent 98%
-  );
+  filter: contrast(1.08);
 }
 
 .orbit {
