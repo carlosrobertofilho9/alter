@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     "tecnologia médica",
     "experiência clínica",
   ],
-  authors: [{ name: "Carlos R. Filho" }],
+  authors: [{ name: "Carlos Filho" }],
   creator: "ALTER Laboratory",
   publisher: "ALTER Laboratory",
   alternates: {

@@ -107,7 +107,7 @@ export default function Home() {
       "Laboratório experimental independente que explora novos futuros para a saúde por meio de design, tecnologia e inteligência artificial.",
     founder: {
       "@type": "Person",
-      name: "Carlos R. Filho",
+      name: "Carlos Filho",
       jobTitle: "Médico e HealthTech Builder",
       sameAs: ["https://www.linkedin.com/in/carlos-filho-84b341206/"],
     },
@@ -195,12 +195,12 @@ export default function Home() {
           <div className="founder-mini">
             <img
               src="/assets/carlos-editorial.webp"
-              alt="Carlos R. Filho"
+              alt="Carlos Filho"
               width="1003"
               height="1568"
             />
             <p>
-              <strong>Fundado e construído por Carlos R. Filho</strong>
+              <strong>Fundado e construído por Carlos Filho</strong>
               <span>Médico &amp; HealthTech Builder</span>
             </p>
             <a
@@ -374,7 +374,7 @@ export default function Home() {
         <div className="about-photo" data-reveal>
           <img
             src="/assets/carlos-editorial.webp"
-            alt="Retrato de Carlos R. Filho"
+            alt="Retrato de Carlos Filho"
             width="1003"
             height="1568"
           />
@@ -382,7 +382,7 @@ export default function Home() {
         </div>
         <div className="about-copy" data-reveal>
           <p className="eyebrow">Por trás da ALTER</p>
-          <h2>Carlos R. Filho</h2>
+          <h2>Carlos Filho</h2>
           <p className="about-role">Médico · HealthTech Builder</p>
           <p>
             Investigo futuros possíveis para a medicina combinando prática clínica,
