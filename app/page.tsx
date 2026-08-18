@@ -255,18 +255,14 @@ export default function Home() {
                 <p>Uma camada independente para avaliar segurança clínica em sistemas de IA.</p>
                 <span className="single-tag">Inteligência clínica</span>
               </div>
-              <div className="network-art" aria-hidden="true">
-                <i className="net-line l1" />
-                <i className="net-line l2" />
-                <i className="net-line l3" />
-                <i className="net-line l4" />
-                <i className="net-line l5" />
-                <b className="node n1" />
-                <b className="node n2" />
-                <b className="node n3" />
-                <b className="node n4" />
-                <b className="node n5" />
-              </div>
+              <img
+                className="secondary-art-image safety-art-image"
+                src="/assets/safety-layer-network.webp"
+                alt=""
+                width="1717"
+                height="916"
+                aria-hidden="true"
+              />
             </article>
 
             <article className="experiment care-card">
@@ -276,16 +272,14 @@ export default function Home() {
                 <p>Informação clínica entendida como relações — não como arquivos.</p>
                 <span className="single-tag">Sistemas</span>
               </div>
-              <div className="care-visual" aria-hidden="true">
-                <span className="care-line c1" />
-                <span className="care-line c2" />
-                <span className="care-line c3" />
-                <span className="care-line c4" />
-                <i className="care-node cn1">P</i>
-                <i className="care-node cn2">D</i>
-                <i className="care-node cn3">T</i>
-                <i className="care-node cn4">E</i>
-              </div>
+              <img
+                className="secondary-art-image caregraph-art-image"
+                src="/assets/caregraph-network.webp"
+                alt=""
+                width="1662"
+                height="946"
+                aria-hidden="true"
+              />
             </article>
           </div>
         </div>
