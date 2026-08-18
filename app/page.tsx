@@ -201,7 +201,7 @@ export default function Home() {
         <div className="experiment-grid">
           <article className="experiment skinos-card">
             <div className="card-copy">
-              <p className="experiment-number">EXP.001 · EM DESENVOLVIMENTO</p>
+              <p className="experiment-number">EXP.001 · DEMO</p>
               <h2>SkinOS</h2>
               <p className="experiment-description">
                 Inteligência clínica para dermatologia contínua.
