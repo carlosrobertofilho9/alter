@@ -135,6 +135,35 @@ summary {
   align-items: center;
 }
 
+.language-switch {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #8e8d87;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 9px;
+  font-weight: 650;
+  letter-spacing: 0.1em;
+}
+
+.language-switch span[aria-current="page"] {
+  color: var(--ink);
+}
+
+.language-switch a {
+  transition: color 180ms ease;
+}
+
+.language-switch a:hover {
+  color: var(--ink);
+}
+
+.language-switch > * + *::before {
+  margin-right: 7px;
+  color: #b2b0a9;
+  content: "/";
+}
+
 .header-rule {
   width: 1px;
   height: 20px;

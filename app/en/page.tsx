@@ -1,66 +1,107 @@
 /* eslint-disable @next/next/no-img-element */
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Health is not finished",
+  description:
+    "An independent experimental laboratory exploring new futures for health through design, technology and artificial intelligence.",
+  keywords: [
+    "ALTER Laboratory",
+    "digital health",
+    "healthtech",
+    "artificial intelligence in healthcare",
+    "health product design",
+    "medical technology",
+    "clinical experience",
+  ],
+  alternates: {
+    canonical: "/en",
+    languages: {
+      "pt-BR": "/",
+      en: "/en",
+      "x-default": "/",
+    },
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "/en",
+    siteName: "ALTER Laboratory",
+    title: "ALTER Laboratory — Health is not finished",
+    description:
+      "Design, technology and artificial intelligence to explore what health can become.",
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "ALTER Laboratory" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "ALTER Laboratory — Health is not finished",
+    description:
+      "Design, technology and artificial intelligence to explore what health can become.",
+    images: ["/og.png"],
+  },
+};
+
 const questions = [
   {
-    question: "E se o prontuário conseguisse compreender o tempo?",
+    question: "What if a medical record could understand time?",
     answer:
-      "O cuidado deixaria de ser uma coleção de consultas isoladas e passaria a revelar trajetórias, padrões e mudanças que hoje permanecem invisíveis.",
+      "Care would stop being a collection of isolated encounters and start revealing trajectories, patterns and changes that currently remain invisible.",
   },
   {
-    question: "E se interfaces clínicas fossem desenhadas para a incerteza?",
+    question: "What if healthcare interfaces were designed for uncertainty?",
     answer:
-      "Em vez de esconder ambiguidades, os sistemas poderiam mostrar o que sabem, o que inferem e onde a decisão humana continua essencial.",
+      "Instead of concealing ambiguity, systems could show what they know, what they infer and where human judgment remains essential.",
   },
   {
-    question: "E se o paciente fosse dono da continuidade do seu cuidado?",
+    question: "What if patients owned the continuity of their care?",
     answer:
-      "Informação, contexto e decisões poderiam acompanhar a pessoa — não ficar presos a um serviço, uma especialidade ou uma tela.",
+      "Information, context and decisions could follow the person rather than remain trapped inside one service, specialty or screen.",
   },
   {
-    question: "O que acontece quando a inteligência artificial se torna invisível?",
+    question: "What happens when artificial intelligence becomes invisible?",
     answer:
-      "Ela deixa de ser uma funcionalidade em destaque e passa a operar como infraestrutura silenciosa para reduzir fricção e ampliar discernimento.",
+      "It stops being a feature on display and becomes quiet infrastructure for reducing friction and expanding discernment.",
   },
   {
-    question: "Por que software médico ainda parece software administrativo?",
+    question: "Why does medical software still look like administrative software?",
     answer:
-      "Porque muitos sistemas foram desenhados para registrar o trabalho, não para ajudar profissionais e pacientes a compreendê-lo.",
+      "Because many systems were designed to document work, not to help clinicians and patients understand it.",
   },
   {
-    question: "E se prevenção se tornasse ambiente?",
+    question: "What if prevention became ambient?",
     answer:
-      "Cuidar deixaria de depender apenas de lembretes e consultas e poderia estar incorporado aos objetos, espaços e rotinas do cotidiano.",
+      "Care would no longer depend only on reminders and appointments; it could be embedded into the objects, spaces and routines of everyday life.",
   },
 ];
 
 const process = [
-  ["01", "Observar", "Encontrar o que aprendemos a aceitar."],
-  ["02", "Questionar", "Perguntar por que precisa existir assim."],
-  ["03", "Alterar", "Imaginar outra possibilidade."],
-  ["04", "Prototipar", "Tornar a ideia tangível."],
-  ["05", "Publicar", "Colocá-la no mundo."],
+  ["01", "Observe", "Find what we have learned to accept."],
+  ["02", "Question", "Ask why it needs to exist this way."],
+  ["03", "Alter", "Imagine another possibility."],
+  ["04", "Prototype", "Make the idea tangible."],
+  ["05", "Release", "Put it into the world."],
 ];
 
 const capabilities = [
-  "Medicina",
-  "Inteligência clínica",
-  "Saúde digital",
-  "Avaliação de IA",
-  "Produto em saúde",
-  "Pesquisa clínica",
+  "Medicine",
+  "Clinical intelligence",
+  "Digital health",
+  "AI evaluation",
+  "Healthcare product",
+  "Clinical research",
   "UX & Product Design",
-  "Prototipagem",
+  "Prototyping",
 ];
 
 type MarkProps = {
   inverse?: boolean;
-  className?: string;
 };
 
-function Mark({ inverse = false, className = "" }: MarkProps) {
+function Mark({ inverse = false }: MarkProps) {
   return (
     <img
-      className={`mark ${className}`}
+      className="mark"
       src={inverse ? "/assets/alter-mark-white.png" : "/assets/alter-mark-dark.png"}
       alt="ALTER Laboratory"
       width="597"
@@ -73,52 +114,52 @@ function Arrow() {
   return <span aria-hidden="true">↗</span>;
 }
 
-export default function Home() {
+export default function EnglishHome() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: "ALTER Laboratory",
-    url: "https://alterlaboratory.com",
+    url: "https://alterlaboratory.com/en",
     logo: "https://alterlaboratory.com/icon.png",
     description:
-      "Laboratório experimental independente que explora novos futuros para a saúde por meio de design, tecnologia e inteligência artificial.",
+      "An independent experimental laboratory exploring new futures for health through design, technology and artificial intelligence.",
     founder: {
       "@type": "Person",
       name: "Carlos R. Filho",
-      jobTitle: "Médico e HealthTech Builder",
+      jobTitle: "Physician and HealthTech Builder",
       sameAs: ["https://www.linkedin.com/in/carlos-filho-84b341206/"],
     },
-    areaServed: "Brasil",
+    areaServed: "Worldwide",
     knowsAbout: [
-      "Saúde digital",
-      "Tecnologia médica",
-      "Inteligência artificial",
-      "Design de produtos",
-      "Experiência clínica",
+      "Digital health",
+      "Medical technology",
+      "Artificial intelligence",
+      "Product design",
+      "Clinical experience",
     ],
   };
 
   return (
-    <main>
+    <main lang="en">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
 
       <header className="site-header shell">
-        <a className="brand-link" href="#top" aria-label="ALTER Laboratory — início">
+        <a className="brand-link" href="#top" aria-label="ALTER Laboratory — home">
           <Mark />
         </a>
-        <nav className="desktop-nav" aria-label="Navegação principal">
-          <a href="#experimentos">Experimentos</a>
-          <a href="#perguntas">Ideias</a>
-          <a href="#laboratorio">Laboratório</a>
-          <a href="#sobre">Sobre</a>
+        <nav className="desktop-nav" aria-label="Primary navigation">
+          <a href="#experiments">Experiments</a>
+          <a href="#questions">Ideas</a>
+          <a href="#laboratory">Laboratory</a>
+          <a href="#about">About</a>
         </nav>
         <div className="header-actions">
-          <div className="language-switch" aria-label="Selecionar idioma">
-            <span aria-current="page">PT</span>
-            <a href="/en" hrefLang="en" lang="en">EN</a>
+          <div className="language-switch" aria-label="Select language">
+            <a href="/" hrefLang="pt-BR" lang="pt-BR">PT</a>
+            <span aria-current="page">EN</span>
           </div>
           <a
             className="linkedin-link"
@@ -130,16 +171,16 @@ export default function Home() {
           </a>
           <span className="header-rule" aria-hidden="true" />
           <details className="mobile-menu">
-            <summary aria-label="Abrir menu">
+            <summary aria-label="Open menu">
               <i />
               <i />
             </summary>
-            <nav aria-label="Menu móvel">
-              <a href="#experimentos">Experimentos</a>
-              <a href="#perguntas">Ideias</a>
-              <a href="#laboratorio">Laboratório</a>
-              <a href="#sobre">Sobre</a>
-              <a href="/en" hrefLang="en" lang="en">English</a>
+            <nav aria-label="Mobile menu">
+              <a href="#experiments">Experiments</a>
+              <a href="#questions">Ideas</a>
+              <a href="#laboratory">Laboratory</a>
+              <a href="#about">About</a>
+              <a href="/" hrefLang="pt-BR" lang="pt-BR">Português</a>
               <a href="https://www.linkedin.com/in/carlos-filho-84b341206/">LinkedIn ↗</a>
             </nav>
           </details>
@@ -150,24 +191,23 @@ export default function Home() {
         <div className="hero-title-block">
           <p className="eyebrow">ALTER Laboratory</p>
           <h1>
-            Saúde
-            <br /> não está
-            <br /> pronta<span>.</span>
+            Health
+            <br /> is not
+            <br /> finished<span>.</span>
           </h1>
-          <a className="text-link hero-cta" href="#experimentos">
-            Explorar experimentos <span aria-hidden="true">↓</span>
+          <a className="text-link hero-cta" href="#experiments">
+            Explore experiments <span aria-hidden="true">↓</span>
           </a>
         </div>
 
         <div className="hero-copy">
           <p>
-            A ALTER Laboratory é um laboratório experimental independente que explora o
-            que a saúde pode se tornar por meio do design, da tecnologia e de ferramentas
-            emergentes.
+            ALTER Laboratory is an independent experimental lab exploring what health
+            can become through design, technology and emerging tools.
           </p>
           <p className="hero-manifesto">
-            Não prevemos o futuro.
-            <br /> Nós o prototipamos.
+            We don&apos;t predict the future.
+            <br /> We prototype it.
           </p>
           <div className="founder-mini">
             <img
@@ -177,15 +217,15 @@ export default function Home() {
               height="1568"
             />
             <p>
-              <strong>Fundado e construído por Carlos R. Filho</strong>
-              <span>Médico &amp; HealthTech Builder</span>
+              <strong>Founded and built by Carlos R. Filho</strong>
+              <span>Physician &amp; HealthTech Builder</span>
             </p>
             <a
               href="https://www.linkedin.com/in/carlos-filho-84b341206/"
               target="_blank"
               rel="noreferrer"
             >
-              Ver no LinkedIn <Arrow />
+              View on LinkedIn <Arrow />
             </a>
           </div>
         </div>
@@ -203,9 +243,9 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section experiments shell" id="experimentos">
+      <section className="section experiments shell" id="experiments">
         <div className="section-heading">
-          <p className="eyebrow">Experimentos em destaque</p>
+          <p className="eyebrow">Featured experiments</p>
           <span>01 — 03</span>
         </div>
 
@@ -215,11 +255,11 @@ export default function Home() {
               <p className="experiment-number">EXP.001 · DEMO</p>
               <h2>SkinOS</h2>
               <p className="experiment-description">
-                Inteligência clínica para dermatologia contínua.
+                Clinical intelligence for continuous dermatology.
               </p>
-              <div className="tags" aria-label="Áreas do projeto">
-                <span>Dermatologia</span>
-                <span>Clínica</span>
+              <div className="tags" aria-label="Project areas">
+                <span>Dermatology</span>
+                <span>Clinical</span>
                 <span>Interface</span>
               </div>
               <a
@@ -228,7 +268,7 @@ export default function Home() {
                 target="_blank"
                 rel="noreferrer"
               >
-                Explorar experimento <Arrow />
+                Explore experiment <Arrow />
               </a>
             </div>
             <a
@@ -236,11 +276,11 @@ export default function Home() {
               href="https://skinos.alterlaboratory.com/dashboard"
               target="_blank"
               rel="noreferrer"
-              aria-label="Abrir a demonstração do SkinOS"
+              aria-label="Open the SkinOS demo"
             >
               <img
                 src="/assets/skinos-dashboard.webp"
-                alt="Interface do SkinOS mostrando o assistente clínico SkinAI"
+                alt="SkinOS interface showing the SkinAI clinical assistant"
                 width="1280"
                 height="720"
               />
@@ -250,10 +290,10 @@ export default function Home() {
           <div className="secondary-experiments">
             <article className="experiment safety-card">
               <div className="secondary-copy">
-                <p className="experiment-number">EXP.002 · EMBRIONÁRIO</p>
+                <p className="experiment-number">EXP.002 · EMBRYONIC</p>
                 <h3>Safety Layer</h3>
-                <p>Uma camada independente para avaliar segurança clínica em sistemas de IA.</p>
-                <span className="single-tag">Inteligência clínica</span>
+                <p>An independent layer for evaluating clinical safety in AI systems.</p>
+                <span className="single-tag">Clinical intelligence</span>
               </div>
               <div className="network-art" aria-hidden="true">
                 <i className="net-line l1" />
@@ -271,10 +311,10 @@ export default function Home() {
 
             <article className="experiment care-card">
               <div className="secondary-copy">
-                <p className="experiment-number">EXP.003 · EMBRIONÁRIO</p>
+                <p className="experiment-number">EXP.003 · EMBRYONIC</p>
                 <h3>CareGraph</h3>
-                <p>Informação clínica entendida como relações — não como arquivos.</p>
-                <span className="single-tag">Sistemas</span>
+                <p>Clinical information understood as relationships — not files.</p>
+                <span className="single-tag">Systems</span>
               </div>
               <div className="care-visual" aria-hidden="true">
                 <span className="care-line c1" />
@@ -291,18 +331,18 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section questions shell" id="perguntas">
+      <section className="section questions shell" id="questions">
         <div className="questions-intro">
-          <p className="eyebrow">Perguntas que exploramos</p>
-          <h2>O cuidado muda quando a pergunta muda.</h2>
+          <p className="eyebrow">Questions we explore</p>
+          <h2>Care changes when the question changes.</h2>
           <p>
-            Antes de projetar respostas, procuramos enxergar os problemas que a rotina
-            tornou invisíveis.
+            Before designing answers, we look for the problems that routine has made
+            invisible.
           </p>
         </div>
         <div className="question-list">
           {questions.map((item, index) => (
-            <details key={item.question} name="alter-questions">
+            <details key={item.question} name="alter-questions-en">
               <summary>
                 <span className="question-index">0{index + 1}</span>
                 <span>{item.question}</span>
@@ -314,17 +354,17 @@ export default function Home() {
           <div className="question-signature">
             <Mark inverse />
             <p>
-              <span>Todo experimento começa com uma pergunta simples:</span>
-              E se fizéssemos diferente?
+              <span>Every experiment starts with a simple question:</span>
+              What if we did it differently?
             </p>
           </div>
         </div>
       </section>
 
-      <section className="section process-section shell" id="laboratorio">
+      <section className="section process-section shell" id="laboratory">
         <div className="section-heading">
-          <p className="eyebrow">Nosso processo de laboratório</p>
-          <span>Uma ideia precisa ganhar forma para ser discutida.</span>
+          <p className="eyebrow">Our laboratory process</p>
+          <span>An idea needs form before it can be discussed.</span>
         </div>
         <ol className="process-list">
           {process.map(([number, title, description], index) => (
@@ -338,24 +378,24 @@ export default function Home() {
         </ol>
       </section>
 
-      <section className="section about shell" id="sobre">
+      <section className="section about shell" id="about">
         <div className="about-photo">
           <img
             src="/assets/carlos-editorial.webp"
-            alt="Retrato de Carlos R. Filho"
+            alt="Portrait of Carlos R. Filho"
             width="1003"
             height="1568"
           />
-          <span>Fundador · ALTER Laboratory</span>
+          <span>Founder · ALTER Laboratory</span>
         </div>
         <div className="about-copy">
-          <p className="eyebrow">Por trás da ALTER</p>
+          <p className="eyebrow">Behind ALTER</p>
           <h2>Carlos R. Filho</h2>
-          <p className="about-role">Médico · HealthTech Builder</p>
+          <p className="about-role">Physician · HealthTech Builder</p>
           <p>
-            Investigo futuros possíveis para a medicina combinando prática clínica,
-            inteligência artificial e design de produto. Construo o que ainda não existe —
-            para tornar novas possibilidades visíveis, discutíveis e desenvolvíveis.
+            I explore possible futures for medicine by combining clinical practice,
+            artificial intelligence and product design. I build what does not exist yet —
+            making new possibilities visible, discussable and developable.
           </p>
           <a
             className="button-link"
@@ -363,11 +403,11 @@ export default function Home() {
             target="_blank"
             rel="noreferrer"
           >
-            Conversar no LinkedIn <Arrow />
+            Connect on LinkedIn <Arrow />
           </a>
         </div>
         <div className="capabilities">
-          <p className="eyebrow">Capacidades</p>
+          <p className="eyebrow">Capabilities</p>
           <ul>
             {capabilities.map((capability, index) => (
               <li key={capability}>
@@ -385,17 +425,17 @@ export default function Home() {
             <Mark inverse />
             <p>ALTER Laboratory © 2026</p>
           </div>
-          <p className="footer-statement">Experimentando o futuro da saúde.</p>
+          <p className="footer-statement">Experimenting with the future of health.</p>
           <p className="footer-open">
-            Aberto a conversas sobre healthtech,
-            <br /> inteligência clínica e produto.
+            Open to conversations about healthtech,
+            <br /> clinical intelligence and product.
           </p>
           <a
             href="https://www.linkedin.com/in/carlos-filho-84b341206/"
             target="_blank"
             rel="noreferrer"
           >
-            Contato <Arrow />
+            Contact <Arrow />
           </a>
         </div>
       </footer>

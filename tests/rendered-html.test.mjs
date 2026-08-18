@@ -37,6 +37,20 @@ test("server-renders the ALTER Laboratory homepage", async () => {
   assert.doesNotMatch(html, /codex-preview|Your site is taking shape/);
 });
 
+test("server-renders the complete English version", async () => {
+  const response = await render("/en");
+  assert.equal(response.status, 200);
+
+  const html = await response.text();
+  assert.match(html, /Health/);
+  assert.match(html, /is not/);
+  assert.match(html, /finished/);
+  assert.match(html, /Questions we explore/);
+  assert.match(html, /Behind ALTER/);
+  assert.match(html, /hreflang="pt-BR"/i);
+  assert.doesNotMatch(html, /Saúde não está pronta/);
+});
+
 test("ships the required brand and product assets", async () => {
   const requiredAssets = [
     "../public/assets/alter-mark-dark.png",

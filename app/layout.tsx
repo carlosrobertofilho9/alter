@@ -34,7 +34,14 @@ export const metadata: Metadata = {
   authors: [{ name: "Carlos R. Filho" }],
   creator: "ALTER Laboratory",
   publisher: "ALTER Laboratory",
-  alternates: { canonical: "/" },
+  alternates: {
+    canonical: "/",
+    languages: {
+      "pt-BR": "/",
+      en: "/en",
+      "x-default": "/",
+    },
+  },
   openGraph: {
     type: "website",
     locale: "pt_BR",
