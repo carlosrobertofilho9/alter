@@ -1,6 +1,6 @@
-/* eslint-disable @next/next/no-img-element */
-
 import type { Metadata } from "next";
+import Image from "next/image";
+
 import { AlterPortal, LanguageTransitionLink } from "../components/AlterExperience";
 
 export const metadata: Metadata = {
@@ -118,16 +118,18 @@ const editorialNotes = [
 
 type MarkProps = {
   inverse?: boolean;
+  priority?: boolean;
 };
 
-function Mark({ inverse = false }: MarkProps) {
+function Mark({ inverse = false, priority = false }: MarkProps) {
   return (
-    <img
+    <Image
       className="mark"
       src={inverse ? "/assets/alter-mark-white.png" : "/assets/alter-mark-dark.png"}
       alt="ALTER Laboratory"
-      width="597"
-      height="483"
+      width={597}
+      height={483}
+      priority={priority}
     />
   );
 }
@@ -170,7 +172,7 @@ export default function EnglishHome() {
 
       <header className="site-header shell">
         <a className="brand-link" href="#top" aria-label="ALTER Laboratory — home">
-          <Mark />
+          <Mark priority />
         </a>
         <nav className="desktop-nav" aria-label="Primary navigation">
           <a href="#experiments">Experiments</a>
@@ -232,11 +234,11 @@ export default function EnglishHome() {
             <br /> We prototype it.
           </p>
           <div className="founder-mini">
-            <img
+            <Image
               src="/assets/carlos-editorial.webp"
               alt="Carlos Filho"
-              width="1003"
-              height="1568"
+              width={1003}
+              height={1568}
             />
             <p>
               <strong>Founded and built by Carlos Filho</strong>
@@ -274,14 +276,19 @@ export default function EnglishHome() {
                 <span>Clinical</span>
                 <span>Interface</span>
               </div>
-              <a
-                className="card-link"
-                href="https://skinos.alterlaboratory.com"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Explore experiment <Arrow />
-              </a>
+              <div className="card-actions">
+                <a className="card-link" href="/en/skinos">
+                  Learn about the experiment <Arrow />
+                </a>
+                <a
+                  className="demo-link"
+                  href="https://skinos.alterlaboratory.com"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Open demo <Arrow />
+                </a>
+              </div>
             </div>
             <a
               className="dashboard-frame"
@@ -290,11 +297,11 @@ export default function EnglishHome() {
               rel="noreferrer"
               aria-label="Open the SkinOS demo"
             >
-              <img
+              <Image
                 src="/assets/skinos-dashboard.webp"
                 alt="SkinOS interface showing the SkinAI clinical assistant"
-                width="1280"
-                height="720"
+                width={1280}
+                height={720}
               />
             </a>
           </article>
@@ -307,12 +314,12 @@ export default function EnglishHome() {
                 <p>An independent layer for evaluating clinical safety in AI systems.</p>
                 <span className="single-tag">Clinical intelligence</span>
               </div>
-              <img
+              <Image
                 className="secondary-art-image safety-art-image"
                 src="/assets/safety-layer-network.webp"
                 alt=""
-                width="1717"
-                height="916"
+                width={1717}
+                height={916}
                 aria-hidden="true"
               />
             </article>
@@ -324,12 +331,12 @@ export default function EnglishHome() {
                 <p>Clinical information understood as relationships — not files.</p>
                 <span className="single-tag">Systems</span>
               </div>
-              <img
+              <Image
                 className="secondary-art-image caregraph-art-image"
                 src="/assets/caregraph-network.webp"
                 alt=""
-                width="1662"
-                height="946"
+                width={1662}
+                height={946}
                 aria-hidden="true"
               />
             </article>
@@ -411,11 +418,11 @@ export default function EnglishHome() {
 
       <section className="section about shell" id="about" data-alter-label="FIELD 05 · AUTHORSHIP">
         <div className="about-photo" data-reveal>
-          <img
+          <Image
             src="/assets/carlos-editorial.webp"
             alt="Portrait of Carlos Filho"
-            width="1003"
-            height="1568"
+            width={1003}
+            height={1568}
           />
           <span>Founder · ALTER Laboratory</span>
         </div>
@@ -454,7 +461,7 @@ export default function EnglishHome() {
         <div className="footer-inner shell">
           <div className="footer-brand">
             <Mark inverse />
-            <p>ALTER Laboratory © 2026</p>
+            <p>ALTER Laboratory © {new Date().getFullYear()}</p>
           </div>
           <p className="footer-statement">Experimenting with the future of health.</p>
           <p className="footer-open">

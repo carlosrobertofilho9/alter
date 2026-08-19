@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import type { CSSProperties, MouseEvent, PointerEvent, ReactNode } from "react";
 import { useEffect, useRef, useState } from "react";
 
@@ -147,12 +148,13 @@ export function AlterPortal({ locale }: { locale: Locale }) {
           } as CSSProperties
         }
       >
-        <img
+        <Image
           className="recessed-hero-art"
           src="/assets/alter-recessed-hero-v3.webp"
           alt=""
-          width="1254"
-          height="1254"
+          width={1254}
+          height={1254}
+          priority
           aria-hidden="true"
         />
         <span className="orbit orbit-one" aria-hidden="true" />

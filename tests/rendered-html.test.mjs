@@ -55,6 +55,31 @@ test("server-renders the complete English version", async () => {
   assert.doesNotMatch(html, /Saúde não está pronta/);
 });
 
+test("server-renders the SkinOS intro page in Portuguese", async () => {
+  const response = await render("/skinos");
+  assert.equal(response.status, 200);
+
+  const html = await response.text();
+  assert.match(html, /SkinOS/);
+  assert.match(html, /Inteligência clínica para dermatologia contínua/);
+  assert.match(html, /Perguntas frequentes/);
+  assert.match(html, /FAQPage/);
+  assert.match(html, /https:\/\/skinos\.alterlaboratory\.com/);
+  assert.match(html, /href="\/en\/skinos"/);
+});
+
+test("server-renders the SkinOS intro page in English", async () => {
+  const response = await render("/en/skinos");
+  assert.equal(response.status, 200);
+
+  const html = await response.text();
+  assert.match(html, /SkinOS/);
+  assert.match(html, /Clinical intelligence for continuous dermatology/);
+  assert.match(html, /Frequently asked questions/);
+  assert.match(html, /href="\/skinos"/);
+  assert.doesNotMatch(html, /Perguntas frequentes/);
+});
+
 test("ships the required brand and product assets", async () => {
   const requiredAssets = [
     "../public/assets/alter-mark-dark.png",
