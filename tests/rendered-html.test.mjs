@@ -58,7 +58,7 @@ test("ships the required brand and product assets", async () => {
   const requiredAssets = [
     "../public/assets/alter-mark-dark.png",
     "../public/assets/alter-mark-white.png",
-    "../public/assets/alter-recessed-hero-v3.webp",
+    "../public/assets/alter-recessed-hero-v4-hd.webp",
     "../public/assets/carlos-editorial.webp",
     "../public/assets/skinos-dashboard.webp",
     "../public/assets/safety-layer-network.webp",
@@ -70,12 +70,17 @@ test("ships the required brand and product assets", async () => {
 
   await Promise.all(requiredAssets.map((asset) => access(new URL(asset, import.meta.url))));
 
-  const [page, layout] = await Promise.all([
+  const [page, layout, experience] = await Promise.all([
     readFile(new URL("../app/page.tsx", import.meta.url), "utf8"),
     readFile(new URL("../app/layout.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../app/components/AlterExperience.tsx", import.meta.url), "utf8"),
   ]);
 
   assert.match(page, /https:\/\/skinos\.alterlaboratory\.com/);
   assert.match(layout, /robots:\s*\{\s*index:\s*true,\s*follow:\s*true\s*\}/);
   assert.match(layout, /summary_large_image/);
+  assert.match(layout, /DeviceLanguageRedirect/);
+  assert.match(experience, /navigator\.languages/);
+  assert.match(experience, /alter-preferred-locale/);
+  assert.match(experience, /alter-recessed-hero-v4-hd\.webp/);
 });

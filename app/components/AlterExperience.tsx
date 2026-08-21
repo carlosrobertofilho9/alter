@@ -6,6 +6,55 @@ import { useEffect, useRef, useState } from "react";
 
 type Locale = "pt" | "en";
 
+const LOCALE_STORAGE_KEY = "alter-preferred-locale";
+
+function rememberLocale(locale: Locale) {
+  try {
+    window.localStorage.setItem(LOCALE_STORAGE_KEY, locale);
+  } catch {
+    // Language switching still works when storage is unavailable.
+  }
+}
+
+export function DeviceLanguageRedirect() {
+  useEffect(() => {
+    let savedLocale: Locale | null = null;
+
+    try {
+      const storedLocale = window.localStorage.getItem(LOCALE_STORAGE_KEY);
+      if (storedLocale === "pt" || storedLocale === "en") savedLocale = storedLocale;
+    } catch {
+      // Fall back to the device language when storage is unavailable.
+    }
+
+    const deviceLocale = (
+      window.navigator.languages?.[0] ??
+      window.navigator.language ??
+      "pt"
+    ).toLowerCase();
+    const preferredLocale = savedLocale ?? (deviceLocale.startsWith("pt") ? "pt" : "en");
+    const pathname = window.location.pathname.replace(/\/+$/, "") || "/";
+
+    const localizedPaths: Record<Locale, Record<string, string>> = {
+      pt: {
+        "/en": "/",
+        "/en/skinos": "/skinos/",
+      },
+      en: {
+        "/": "/en/",
+        "/skinos": "/en/skinos/",
+      },
+    };
+    const targetPath = localizedPaths[preferredLocale][pathname];
+
+    if (targetPath) {
+      window.location.replace(`${targetPath}${window.location.search}${window.location.hash}`);
+    }
+  }, []);
+
+  return null;
+}
+
 const modeCopy = {
   pt: {
     enter: "Entrar no ALTER Mode",
@@ -150,10 +199,10 @@ export function AlterPortal({ locale }: { locale: Locale }) {
       >
         <Image
           className="recessed-hero-art"
-          src="/assets/alter-recessed-hero-v3.webp"
+          src="/assets/alter-recessed-hero-v4-hd.webp"
           alt=""
-          width={1254}
-          height={1254}
+          width={3072}
+          height={3072}
           priority
           aria-hidden="true"
         />
@@ -214,6 +263,8 @@ export function LanguageTransitionLink({
   const targetPath = currentLocale === "pt" ? "/en" : "/";
 
   function preserveContext(event: MouseEvent<HTMLAnchorElement>) {
+    rememberLocale(currentLocale === "pt" ? "en" : "pt");
+
     if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
 
     const sections = Array.from(document.querySelectorAll<HTMLElement>("section[id]"));
@@ -238,6 +289,36 @@ export function LanguageTransitionLink({
       hrefLang={currentLocale === "pt" ? "en" : "pt-BR"}
       lang={currentLocale === "pt" ? "en" : "pt-BR"}
       onClick={preserveContext}
+    >
+      {children}
+    </a>
+  );
+}
+
+type LanguagePreferenceLinkProps = {
+  href: string;
+  targetLocale: Locale;
+  hrefLang: string;
+  lang: string;
+  className?: string;
+  children: ReactNode;
+};
+
+export function LanguagePreferenceLink({
+  href,
+  targetLocale,
+  hrefLang,
+  lang,
+  className,
+  children,
+}: LanguagePreferenceLinkProps) {
+  return (
+    <a
+      className={className}
+      href={href}
+      hrefLang={hrefLang}
+      lang={lang}
+      onClick={() => rememberLocale(targetLocale)}
     >
       {children}
     </a>
