@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { DeviceLanguageRedirect } from "./components/AlterExperience";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -80,7 +81,10 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="pt-BR">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>{children}</body>
+      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+        <DeviceLanguageRedirect />
+        {children}
+      </body>
     </html>
   );
 }

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { LanguagePreferenceLink } from "../../components/AlterExperience";
 
 export const metadata: Metadata = {
   title: "SkinOS — Clinical intelligence for continuous dermatology",
@@ -199,9 +200,9 @@ export default function EnglishSkinOSPage() {
         </nav>
         <div className="header-actions">
           <div className="language-switch" aria-label="Select language">
-            <Link href="/skinos" hrefLang="pt-BR" lang="pt-BR">
+            <LanguagePreferenceLink href="/skinos" targetLocale="pt" hrefLang="pt-BR" lang="pt-BR">
               PT
-            </Link>
+            </LanguagePreferenceLink>
             <span aria-current="page">EN</span>
           </div>
           <a
@@ -223,9 +224,9 @@ export default function EnglishSkinOSPage() {
               <Link href="/en#notes">Ideas</Link>
               <Link href="/en#laboratory">Laboratory</Link>
               <Link href="/en#about">About</Link>
-              <Link href="/skinos" hrefLang="pt-BR" lang="pt-BR">
+              <LanguagePreferenceLink href="/skinos" targetLocale="pt" hrefLang="pt-BR" lang="pt-BR">
                 Português
-              </Link>
+              </LanguagePreferenceLink>
               <a href="https://skinos.alterlaboratory.com">Open demo ↗</a>
             </nav>
           </details>
